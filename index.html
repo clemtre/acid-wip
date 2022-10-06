@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acid Rays</title>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <img id="roncier" src="uf_comingsoon020.png" alt="">
+    </div>
+    <div id="text">
+        <h1>COMMING SOON</h1>
+        <a id="mail" href="mailto:contact@acidrays.com">contact@acidrays.com</a>
+    </div>
+    <section></section>
+    <a id="insta" href="">
+        <img src="ACID-RAYS-white.png" alt="">
+    </a>
+</body>
+
+</html>
+
+<style>
+    #insta {
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        width: 100px;
+        z-index: 10;
+    }
+    #insta img {
+        width: 100%;
+    }
+    #mail, #mail:hover {
+        font-size: 1rem;
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin: auto;
+    }
+    #text {
+        opacity: 0;
+        position: fixed;
+        left: 50vw;
+        top: 50vh;
+        transform: translate(-50%, -50%);
+        color: white;
+        width: 100vw;
+    }
+    div * {
+        text-align: center;
+    }
+    h1 {
+        font-weight: normal;
+        font-size: 2rem;
+        margin: .2rem 0;
+    }
+    #wrapper {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+    }
+    #roncier {
+
+        position:absolute;
+        margin: auto;
+        max-width: 150%;
+        left: 50%;
+        transform: translateX(-50%);
+        max-height: 100%;
+        /* max-height:é 100vh; */
+        object-fit: cover;
+        bottom: 0;
+        /* offset-anchor: top; */
+        
+    }
+
+
+    body {
+        background-color: black;
+        margin: 0;
+    }
+
+    section {
+        height: 200vh;
+    }
+</style>
+<script>
+    const text = document.querySelector('#text')
+    const img = document.querySelector('#roncier')
+    var body = document.body,
+        html = document.documentElement;
+    let y = 0
+    var height = Math.max(body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight);
+    let ratio = 0
+    addEventListener("scroll", (event) => {
+        y = window.scrollY
+        text.style.opacity = ratio.toFixed(1) 
+        img.style.filter =  `blur(${ratio*3}px)`
+        ratio = Math.round(y * 2) / height
+        console.log(Math.round(y * 2) / height)
+    })
+</script>
